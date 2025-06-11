@@ -1,0 +1,112 @@
+/* Custom styles */
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Post grid item styles */
+.post-item {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.post-item::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: background 0.2s ease;
+    z-index: 1;
+}
+
+.post-item:hover::before {
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.post-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.post-item:hover img {
+    transform: scale(1.02);
+}
+
+/* Navigation hover effects */
+nav a {
+    position: relative;
+    padding: 4px;
+    transition: transform 0.2s ease;
+}
+
+nav a:hover {
+    transform: scale(1.1);
+}
+
+nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -17px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: currentColor;
+}
+
+/* Modal animations */
+@keyframes modalFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes modalSlideIn {
+    from { 
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#post-modal {
+    animation: modalFadeIn 0.2s ease-out;
+}
+
+#post-modal > div {
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c7c7c7;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .post-item::before {
+        display: none;
+    }
+    
+    .post-item:hover img {
+        transform: none;
+    }
+}
