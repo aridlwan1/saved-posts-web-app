@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Posts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-white">
+    <!-- Main Content -->
+    <main class="max-w-6xl mx-auto px-4 pt-8">
+        <!-- Saved Posts Header -->
+        <div class="py-8">
+            <h2 class="text-2xl font-semibold mb-1">Saved</h2>
+            <p class="text-gray-500 text-sm">Only you can see what you've saved</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error-container" class="hidden bg-red-50 border border-red-200 rounded-lg p-4 mb-8">
+            <div class="flex">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-exclamation-circle text-red-400"></i>
+                </div>
+                <div class="ml-3">
+                    <h3 class="text-sm font-medium text-red-800">Error Loading Posts</h3>
+                    <p class="mt-2 text-sm text-red-700" id="error-message">
+                        Unable to load saved posts. Please try again later.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Posts Grid -->
+        <div id="posts-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-1 md:gap-4">
+            <!-- Posts will be dynamically inserted here -->
+        </div>
+    </main>
+
+    <!-- Post Modal -->
+    <div id="post-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center hidden z-50">
+        <div class="bg-white rounded-lg max-w-3xl w-full mx-4">
+            <div class="flex justify-end p-4 border-b">
+                <button id="modal-close" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-4">
+                <img id="modal-image" src="" alt="" class="w-full rounded-lg">
+                <p id="modal-caption" class="mt-4 text-gray-700"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
